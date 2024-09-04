@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title%}建立基本資料{% endblock %}
+
+{% block content%}
+<div id="title">
+    <h1>建立基本資料</h1>
+</div>
+
+<div id="create-userprofile-form">
+    <form action="" method="POST">
+        {%csrf_token%}
+
+        <label for="{{form.nickname.id_for_label}}">綽號</label> <br>
+        {{form.nickname}} <br>
+
+        <label for="{{form.gender.id_for_label}}">性別</label> <br>
+        {{form.gender}} <br>
+
+        <label for="{{form.birthday.id_for_label}}">生日(YYYY/MM/DD)</label> <br>
+        {{form.birthday}} <br>
+
+        <label for="{{form.email.id_for_label}}">信箱</label> <br>
+        {{form.email}} <br>
+
+        <label for="{{form.tel.id_for_label}}">電話</label> <br>
+        {{form.tel}} <br>
+
+        <div id="message">
+            {{message}}
+        </div>
+
+        <div id="errors">
+            {% for field in form %}
+            {% if field.errors %}
+            {% for error in field.errors %}
+            {{error}} <br>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+            {{error}} <br>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+
+        <input type="submit" name="submit-button" id="submit-button" value="確定">
+        <input type="reset" name="reset-button" id="reset-button" value="清除">
+
+
+
+    </form>
+</div>
+{% endblock %}

@@ -8,7 +8,7 @@ class UserProfileAdmin(admin.ModelAdmin):
     list_display = ("user_username", "nickname", "gender", "email", "create_time")
     list_filter = ("gender",)
     search_fields = ("nickname",)
-    ordering = "create_time"
+    ordering = ("create_time",)
 
     # self為UserProfile，obj為其實體物件
     def user_username(self, obj):
