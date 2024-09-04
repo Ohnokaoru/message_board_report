@@ -38,7 +38,7 @@ def chalogin(request):
             user = form.get_user()
 
             login(request, user)
-            message = "登入成功"
+            return redirect("create-userprofile")
 
         else:
             message = "資料錯誤"

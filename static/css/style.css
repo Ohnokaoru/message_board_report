@@ -12,7 +12,8 @@ body {
 
 #register-form,
 #chalogin-form,
-#create-userprofile-form {
+#create-userprofile-form,
+#review-userprofile {
     margin: auto;
     padding: 20px;
     background-color: rgb(192, 247, 247);
@@ -56,6 +57,7 @@ body {
     text-decoration: none;
 }
 
-#create-userprofile-form {
+#create-userprofile-form,
+#review-userprofile {
     width: 20%;
 }

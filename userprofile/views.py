@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from .forms import UserProfileForm
@@ -11,11 +11,10 @@ from .forms import UserProfileForm
 @login_required
 def create_userprofile(request):
     message = ""
-    userprofileform = None
 
     try:
         userprofile = UserProfile.objects.get(user=request.user)
-        message = "你已經建立過基本資料"
+        return redirect("review-userprofile")
 
     except UserProfile.DoesNotExist:
         if request.method == "POST":
@@ -25,15 +24,29 @@ def create_userprofile(request):
                 userprofileform = form.save(commit=False)
                 userprofileform.user = request.user
                 userprofileform.save()
-                message = "新增基本資料成功"
+                return redirect("review-userprofile")
 
             else:
-                message = "資料 錯誤"
+                message = "資料錯誤"
         else:
             form = UserProfileForm()
 
     return render(
         request,
         "userprofile/create-userprofile.html",
-        {"message": message, "form": form, "userprofileform": userprofileform},
+        {"message": message, "form": form},
+    )
+
+
+# 檢視基本資料
+@login_required
+def review_userprofile(request):
+    try:
+        userprofile = UserProfile.objects.get(user=request.user)
+
+    except UserProfile.DoesNotExist:
+        return redirect("create-userprofile")
+
+    return render(
+        request, "userprofile/review-userprofile.html", {"userprofile": userprofile}
     )
