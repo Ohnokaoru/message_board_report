@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import ChaloginForm
 from django.contrib.auth import login, logout
@@ -47,3 +47,10 @@ def chalogin(request):
         form = ChaloginForm()
 
     return render(request, "user/chalogin.html", {"message": message, "form": form})
+
+
+# 登出
+def user_logout(request):
+    logout(request)
+
+    return redirect("chalogin")
