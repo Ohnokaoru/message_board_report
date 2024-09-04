@@ -50,3 +50,33 @@ def review_userprofile(request):
     return render(
         request, "userprofile/review-userprofile.html", {"userprofile": userprofile}
     )
+
+
+# 修改
+@login_required
+def edit_userprofile(request):
+    message = ""
+    try:
+        userprofile = UserProfile.objects.get(user=request.user)
+
+    except UserProfile.DoesNotExist:
+        return redirect("review-userprofile")
+
+    if request.method == "POST":
+        form = UserProfileForm(request.POST, instance=userprofile)
+
+        if form.is_valid():
+            userprofileform = form.save(commit=False)
+            userprofileform.user = request.user
+            userprofileform.save()
+            return redirect("review-userprofile")
+
+        else:
+            message = "資料錯誤"
+
+    else:
+        form = UserProfileForm(instance=userprofile)
+
+    return render(
+        request, "userprofile/edit-userprofile.html", {"form": form, "message": message}
+    )

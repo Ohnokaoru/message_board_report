@@ -13,7 +13,8 @@ body {
 #register-form,
 #chalogin-form,
 #create-userprofile-form,
-#review-userprofile {
+#review-userprofile,
+#edit-userprofile-form {
     margin: auto;
     padding: 20px;
     background-color: rgb(192, 247, 247);
@@ -55,9 +56,26 @@ body {
     padding: 5px;
     border-radius: 5px;
     text-decoration: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 #create-userprofile-form,
-#review-userprofile {
+#review-userprofile,
+#edit-userprofile-form {
     width: 20%;
+}
+
+#edit-a-button {
+    margin-top: 20px;
+    text-align: center;
+
+}
+
+#edit-a-button a {
+    text-decoration: none;
+    background-color: white;
+    border: white solid;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 5px;
 }
