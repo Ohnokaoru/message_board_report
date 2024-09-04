@@ -41,3 +41,16 @@ body {
 #chalogin-form {
     width: 20%;
 }
+
+#navbar {
+    background-color: rgb(181, 247, 247);
+    padding: 10px;
+}
+
+#navbar a {
+    margin-left: 10px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+}
