@@ -10,7 +10,8 @@ body {
     padding: 10px;
 }
 
-#register-form {
+#register-form,
+#chalogin-form {
     margin: auto;
     padding: 20px;
     background-color: rgb(192, 247, 247);
@@ -35,4 +36,8 @@ body {
 #errors {
     color: red;
     margin-bottom: 10px;
+}
+
+#chalogin-form {
+    width: 20%;
 }
