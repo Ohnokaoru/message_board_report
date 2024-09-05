@@ -54,7 +54,7 @@ def review_all(request):
     return render(request, "boardunit/review-all.html", {"page_obj": page_obj})
 
 
-# 點選細內文
+# 點選內文
 def review_detail(request, boardunit_id):
     try:
         boardunit = BoardUnit.objects.get(id=boardunit_id)
@@ -63,3 +63,23 @@ def review_detail(request, boardunit_id):
         return redirect("review-all")
 
     return render(request, "boardunit/review-detail.html", {"boardunit": boardunit})
+
+
+# 我的歷史發文
+def review_myboardunit(request):
+    myboardunits = BoardUnit.objects.filter(userprofile=request.user.userprofile)
+
+    if not myboardunits:
+        return redirect("create-boardunit")
+
+    paginator = Paginator(myboardunits, 4)
+
+    try:
+        page_number = request.GET.get("page", 1)
+
+    except (TypeError, ValueError):
+        page_number = 1
+
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, "boardunit/review-myboardunit.html", {"page_obj": page_obj})

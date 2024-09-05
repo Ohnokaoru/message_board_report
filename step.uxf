@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>216</x>
+      <x>192</x>
       <y>0</y>
       <w>156</w>
       <h>84</h>
@@ -17,7 +17,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>468</x>
+      <x>444</x>
       <y>0</y>
       <w>192</w>
       <h>120</h>
@@ -32,7 +32,7 @@ chalogin</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
+      <x>372</x>
       <y>0</y>
       <w>36</w>
       <h>372</h>
@@ -43,7 +43,7 @@ chalogin</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
+      <x>336</x>
       <y>0</y>
       <w>132</w>
       <h>36</h>
@@ -54,7 +54,7 @@ chalogin</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>468</x>
+      <x>444</x>
       <y>156</y>
       <w>192</w>
       <h>96</h>
@@ -62,7 +62,7 @@ chalogin</panel_attributes>
     <panel_attributes>userprofile
 --
 create_userprofile
-view_userprofile
+review_userprofile
 edit_userprofile
 
 </panel_attributes>
@@ -71,7 +71,7 @@ edit_userprofile
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
+      <x>372</x>
       <y>156</y>
       <w>96</w>
       <h>36</h>
@@ -82,7 +82,7 @@ edit_userprofile
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
+      <x>372</x>
       <y>336</y>
       <w>96</w>
       <h>36</h>
@@ -93,7 +93,7 @@ edit_userprofile
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>468</x>
+      <x>444</x>
       <y>324</y>
       <w>192</w>
       <h>168</h>
@@ -102,10 +102,13 @@ edit_userprofile
 --
 create_boardunit
 review_all
+review_detail
+review_myboardunit
+
 edit_myboardunit
 delete_myboardunit
-view_myboardunit
-view_detailboardunit
+
+
 
 </panel_attributes>
     <additional_attributes/>
@@ -113,7 +116,7 @@ view_detailboardunit
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>732</x>
+      <x>708</x>
       <y>0</y>
       <w>156</w>
       <h>84</h>
@@ -128,7 +131,7 @@ User
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>996</x>
+      <x>972</x>
       <y>0</y>
       <w>276</w>
       <h>84</h>
@@ -144,7 +147,7 @@ ChaloginForm(AuthenticationForm)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>732</x>
+      <x>708</x>
       <y>156</y>
       <w>216</w>
       <h>84</h>
@@ -158,7 +161,7 @@ UserProfile(models.Model)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1008</x>
+      <x>984</x>
       <y>156</y>
       <w>276</w>
       <h>84</h>
@@ -172,7 +175,7 @@ UserProfileForm(forms.ModelForm)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>732</x>
+      <x>708</x>
       <y>324</y>
       <w>216</w>
       <h>84</h>
@@ -187,7 +190,7 @@ Comment(models.Model)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>996</x>
+      <x>972</x>
       <y>324</y>
       <w>276</w>
       <h>84</h>
@@ -201,7 +204,7 @@ CommentForm(forms.ModelForm)</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>132</x>
+      <x>108</x>
       <y>468</y>
       <w>276</w>
       <h>84</h>
@@ -215,7 +218,7 @@ view_detailboardunit
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>396</x>
+      <x>372</x>
       <y>456</y>
       <w>96</w>
       <h>72</h>
@@ -226,8 +229,8 @@ view_detailboardunit
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>852</x>
-      <y>708</y>
+      <x>624</x>
+      <y>840</y>
       <w>216</w>
       <h>156</h>
     </coordinates>
@@ -243,21 +246,21 @@ view_detailboardunit
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>864</x>
-      <y>1056</y>
+      <x>636</x>
+      <y>1188</y>
       <w>192</w>
       <h>108</h>
     </coordinates>
     <panel_attributes>檢視基本資料
 
-view-userprofile.html</panel_attributes>
+review-userprofile.html</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>876</x>
-      <y>912</y>
+      <x>648</x>
+      <y>1044</y>
       <w>180</w>
       <h>108</h>
     </coordinates>
@@ -270,8 +273,8 @@ create-userprofile.html
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>948</x>
-      <y>852</y>
+      <x>720</x>
+      <y>984</y>
       <w>36</w>
       <h>84</h>
     </coordinates>
@@ -281,8 +284,8 @@ create-userprofile.html
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>948</x>
-      <y>1008</y>
+      <x>720</x>
+      <y>1140</y>
       <w>36</w>
       <h>72</h>
     </coordinates>
@@ -292,8 +295,8 @@ create-userprofile.html
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>948</x>
-      <y>1152</y>
+      <x>720</x>
+      <y>1284</y>
       <w>36</w>
       <h>72</h>
     </coordinates>
@@ -303,8 +306,8 @@ create-userprofile.html
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>876</x>
-      <y>1200</y>
+      <x>648</x>
+      <y>1332</y>
       <w>180</w>
       <h>108</h>
     </coordinates>
@@ -317,7 +320,7 @@ edit-userprofile.html
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>624</x>
+      <x>648</x>
       <y>708</y>
       <w>156</w>
       <h>84</h>
@@ -330,36 +333,130 @@ review-all.html</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>768</x>
-      <y>744</y>
-      <w>108</w>
-      <h>36</h>
+      <x>720</x>
+      <y>780</y>
+      <w>36</w>
+      <h>84</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;-&gt;</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>684</x>
-      <y>780</y>
-      <w>36</w>
-      <h>108</h>
+      <x>576</x>
+      <y>744</y>
+      <w>96</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>600</x>
-      <y>864</y>
-      <w>204</w>
+      <x>396</x>
+      <y>708</y>
+      <w>192</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>新增發文
 
 create-boardunit.html</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>744</y>
+      <w>180</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1092</x>
+      <y>840</y>
+      <w>180</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>修改內文
+
+edit-myboardunit.html</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>720</y>
+      <w>324</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;250.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1092</x>
+      <y>708</y>
+      <w>180</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>我的歷史發文
+
+myboardunit.html</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>744</y>
+      <w>36</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>876</x>
+      <y>840</y>
+      <w>180</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>瀏覽內文
+
+review_detail.html</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1044</x>
+      <y>864</y>
+      <w>72</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1164</x>
+      <y>780</y>
+      <w>36</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
