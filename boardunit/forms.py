@@ -9,4 +9,4 @@ class BoardUnitForm(forms.ModelForm):
     class Meta:
         model = BoardUnit
 
-        exclude = ("time", "userprofile")
+        fields = ("subject", "text")

@@ -13,7 +13,7 @@ class UserProfile(models.Model):
     email = models.EmailField(blank=True, default="")
     tel = models.CharField(max_length=10, blank=True, default="")
     create_time = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.user.username} 綽號:{self.nickname}"

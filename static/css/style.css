@@ -14,11 +14,12 @@ body {
 #chalogin-form,
 #create-userprofile-form,
 #review-userprofile,
-#edit-userprofile-form {
+#edit-userprofile-form,
+#create-boardunit-form {
     margin: auto;
     padding: 20px;
     background-color: rgb(192, 247, 247);
-    width: 40%;
+    width: 30%;
     border-radius: 10px;
     border: solid white;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
