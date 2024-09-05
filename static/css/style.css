@@ -70,14 +70,16 @@ body {
 }
 
 #edit-a-button,
-#review-a-button {
+#review-a-button,
+#page-a-button {
     margin-top: 20px;
     text-align: center;
 
 }
 
 #edit-a-button a,
-#review-a-button a {
+#review-a-button a,
+#page-a-button a {
     text-decoration: none;
     background-color: white;
     border: white solid;

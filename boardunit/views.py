@@ -41,7 +41,7 @@ def review_all(request):
     if not all_boardunits:
         return redirect("create-boardunit")
 
-    paginator = Paginator(all_boardunits, 4)
+    paginator = Paginator(all_boardunits, 3)
 
     try:
         page_number = int(request.GET.get("page", 1))
@@ -72,7 +72,7 @@ def review_myboardunit(request):
     if not myboardunits:
         return redirect("create-boardunit")
 
-    paginator = Paginator(myboardunits, 4)
+    paginator = Paginator(myboardunits, 3)
 
     try:
         page_number = request.GET.get("page", 1)
@@ -83,3 +83,6 @@ def review_myboardunit(request):
     page_obj = paginator.get_page(page_number)
 
     return render(request, "boardunit/review-myboardunit.html", {"page_obj": page_obj})
+
+
+# 修改我的歷史發文
