@@ -101,7 +101,7 @@ edit_userprofile
     <panel_attributes>boardunit
 --
 create_boardunit
-view_boardunit
+review_all
 edit_myboardunit
 delete_myboardunit
 view_myboardunit
@@ -312,6 +312,54 @@ create-userprofile.html
 
 edit-userprofile.html
 </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>624</x>
+      <y>708</y>
+      <w>156</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>留言板 首頁
+
+review-all.html</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>768</x>
+      <y>744</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>684</x>
+      <y>780</y>
+      <w>36</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>864</y>
+      <w>204</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>新增發文
+
+create-boardunit.html</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

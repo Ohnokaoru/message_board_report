@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title%}內文{% endblock %}
+
+{% block content%}
+<div id="title">
+    <h1>內文</h1>
+</div>
+
+<div id="review-boardunit">
+
+    <div id="subject">
+        {{boardunit.subject}} <br>
+    </div>
+
+    <div id="review-boardunit-text">
+        {{boardunit.text}} <br>
+        <br>
+
+    </div>
+
+    發文時間:{{boardunit.time}} &nbsp;&nbsp;發文者:{{boardunit.userprofile.nickname}}
+    <br>
+
+
+</div>
+
+
+
+</div>
+
+{% endblock %}

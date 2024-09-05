@@ -52,3 +52,14 @@ def review_all(request):
     page_obj = paginator.get_page(page_number)
 
     return render(request, "boardunit/review-all.html", {"page_obj": page_obj})
+
+
+# 點選細內文
+def review_detail(request, boardunit_id):
+    try:
+        boardunit = BoardUnit.objects.get(id=boardunit_id)
+
+    except BoardUnit.DoesNotExist:
+        return redirect("review-all")
+
+    return render(request, "boardunit/review-detail.html", {"boardunit": boardunit})

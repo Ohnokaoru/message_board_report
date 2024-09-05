@@ -19,9 +19,15 @@
 
     </div>
 
-    發文時間:{{boardunit.time}} &nbsp;&nbsp;發文者:{{boardunit.userprofile.nickname}}
+    發文時間:{{boardunit.time}} &nbsp;&nbsp;發文者:{{boardunit.userprofile.nickname}}<br>
+
+
+    <div id="review-a-button">
+        <a href="{% url 'review-detail' boardunit.id %}">內文</a>
+    </div>
     <br>
     <hr>
+    <br>
     {% endfor %}
 </div>
 
