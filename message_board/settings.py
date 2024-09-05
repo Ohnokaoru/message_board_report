@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "user",
     "captcha",
     "userprofile",
+    "boardunit",
 ]
 
 MIDDLEWARE = [

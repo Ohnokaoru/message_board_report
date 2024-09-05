@@ -14,6 +14,7 @@ def user_register(request):
 
         if form.is_valid():
             form.save()
+            return redirect("chalogin")
 
         else:
             message = "資料錯誤:"
