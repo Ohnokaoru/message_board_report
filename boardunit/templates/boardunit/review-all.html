@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title%}留言板{% endblock %}
+
+{% block content%}
+<div id="title">
+    <h1>留言板</h1>
+</div>
+
+<div id="all-boardunit">
+    {% for boardunit in page_obj %}
+    <div id="subject">
+        {{boardunit.subject}} <br>
+    </div>
+
+    <div id="all-boardunit-text">
+        {{boardunit.text|slice:"10"}}... <br>
+        <br>
+
+    </div>
+
+    發文時間:{{boardunit.time}} &nbsp;&nbsp;發文者:{{boardunit.userprofile.nickname}}
+    <br>
+    <hr>
+    {% endfor %}
+</div>
+
+
+
+</div>
+
+{% endblock %}

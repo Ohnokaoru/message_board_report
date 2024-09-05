@@ -15,7 +15,8 @@ body {
 #create-userprofile-form,
 #review-userprofile,
 #edit-userprofile-form,
-#create-boardunit-form {
+#create-boardunit-form,
+#all-boardunit {
     margin: auto;
     padding: 20px;
     background-color: rgb(192, 247, 247);
@@ -79,4 +80,16 @@ body {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 5px;
+}
+
+#subject {
+    padding: 5px;
+    font-weight: 700;
+}
+
+#all-boardunit-text {
+    padding: 10px;
+    background-color: rgb(240, 248, 248);
+    border-radius: 10px;
+
 }
