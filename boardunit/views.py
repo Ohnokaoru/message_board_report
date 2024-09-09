@@ -155,36 +155,37 @@ def review_detail(request, boardunit_id, parent_id=None):
     except Comment.DoesNotExist:
         parent = None
 
-        if request.method == "POST":
-            form = CommentForm(request.POST)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
 
-            if form.is_valid():
-                commentform = form.save(commit=False)
-                commentform.board_unit = boardunit
-                commentform.parent = parent
-                commentform.userprofile = request.user.userprofile
-                commentform.save()
-                return redirect("review-detail", boardunit_id=boardunit_id)
-
-            else:
-                message = "資料錯誤"
+        if form.is_valid():
+            commentform = form.save(commit=False)
+            commentform.board_unit = boardunit
+            commentform.parent = parent
+            commentform.userprofile = request.user.userprofile
+            commentform.save()
+            return redirect("review-detail", boardunit_id=boardunit_id)
 
         else:
-            form = CommentForm()
+            message = "資料錯誤"
 
-        # 取得所有留言
-        comments = Comment.objects.filter(board_unit=boardunit).order_by("-time")
+    else:
+        form = CommentForm()
 
-        return render(
-            request,
-            "boardunit/review-detail.html",
-            {
-                "boardunit": boardunit,
-                "message": message,
-                "form": form,
-                "comments": comments,
-            },
-        )
+    # 取得所有留言
+    comments = Comment.objects.filter(board_unit=boardunit).order_by("-time")
+
+    return render(
+        request,
+        "boardunit/review-detail.html",
+        {
+            "boardunit": boardunit,
+            "message": message,
+            "form": form,
+            "comments": comments,
+            "parent": parent,
+        },
+    )
 
 
 """

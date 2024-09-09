@@ -41,11 +41,32 @@
     <br>
     {% if comments %}
     {% for comment in comments %}
+    {{comment.id}}
     {{comment.userprofile.nickname}} <br>
     {{comment.text}} <br>
     {{comment.time}} <br>
+    <!-- 針對留言的回覆 -->
+    <a href="{% url 'review-detail-parent' boardunit.id comment.id %}">回覆留言</a>
+    <br>
+    <br>
+
+    {% if comment.replies.all %}
+    <div id="reply" style="padding-left: 40px;">
+        {% for reply in comment.replies.all %}
+        {{reply.userprofile.nickname}} <br>
+        {{reply.text}} <br>
+        {{reply.time}} <br>
+
+        <!-- 針對回覆的在回覆 -->
+        <a href="{% url 'review-detail-parent' boardunit.id reply.id %}" style="float: right;">回覆</a><br>
+        <br>
+        <br>
+        {% endfor %}
+    </div>
+    {% endif %}
     <hr>
     {% endfor %}
+
     {% else %}
     沒有留言
     {% endif %}
@@ -53,21 +74,30 @@
 
 {% if request.user.is_authenticated %}
 <div id="leave-a-comment">
-    我要留言:
-    <form action="" method="POST">
+    {% if not parent %}
+    我對文章要留言
+    <form action="{% url 'review-detail' boardunit.id %}" method="POST">
         {% csrf_token %}
-        <label for="{{form.text.id_for_label}}"></label>
+        <label for="{{ form.text.id_for_label }}"></label>
         <div class="comment-span">
-            {{form.text}} <br>
+            {{ form.text }} <br>
         </div>
-
         <input type="submit" name="submit-button" id="submit-button" value="確定">
         <input type="reset" name="reset-button" id="reset-button" value="清除">
     </form>
+    {% else %}
+    針對留言:{{parent.text|slice:"5"}}... <br>
+    回覆留言
+    <form action="{% url 'review-detail-parent' boardunit.id parent.id %}" method="POST">
+        {% csrf_token %}
+        <label for="{{ form.text.id_for_label }}"></label>
+        <div class="comment-span">
+            {{ form.text }} <br>
+        </div>
+        <input type="submit" name="submit-button" id="submit-button" value="確定">
+        <input type="reset" name="reset-button" id="reset-button" value="清除">
+    </form>
+    {% endif %}
 </div>
 {% endif %}
-
-
-
-
 {% endblock %}
