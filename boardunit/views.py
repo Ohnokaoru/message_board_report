@@ -54,19 +54,6 @@ def review_all(request):
     return render(request, "boardunit/review-all.html", {"page_obj": page_obj})
 
 
-"""
-# 點選內文
-def review_detail(request, boardunit_id):
-    try:
-        boardunit = BoardUnit.objects.get(id=boardunit_id)
-
-    except BoardUnit.DoesNotExist:
-        return redirect("review-all")
-
-    return render(request, "boardunit/review-detail.html", {"boardunit": boardunit})
-"""
-
-
 # 我的歷史發文
 def review_myboardunit(request):
     myboardunits = BoardUnit.objects.filter(
@@ -186,55 +173,3 @@ def review_detail(request, boardunit_id, parent_id=None):
             "parent": parent,
         },
     )
-
-
-"""
-# 新增留言
-@login_required
-def create_comment(request, boardunit_id, parent_id=None):
-    try:
-        boardunit = BoardUnit.objects.get(id=boardunit_id)
-
-    except BoardUnit.DoesNotExist:
-        return redirect("review-all")
-
-    # 是否為頂層留言(none為頂層留言，是針對發文的留言，而非針對留言的回覆)
-    message = ""
-    parent = None
-    try:
-        parent = Comment.objects.get(id=parent_id)
-
-    except Comment.DoesNotExist:
-        parent = None
-
-        if request.method == "POST":
-            form = CommentForm(request.POST)
-
-            if form.is_valid():
-                commentform = form.save(commit=False)
-                commentform.board_unit = boardunit
-                commentform.parent = parent
-                commentform.userprofile = request.user.userprofile
-                commentform.save()
-                return redirect("review-detail", boardunit_id=boardunit_id)
-
-            else:
-                message = "資料錯誤"
-
-        else:
-            form = CommentForm()
-
-        # 取得所有留言
-        comments = Comment.objects.filter(board_unit=boardunit).order_by("-time")
-
-        return render(
-            request,
-            "boardunit/create-comment.html",
-            {
-                "boardunit": boardunit,
-                "message": message,
-                "form": form,
-                "comments": comments,
-            },
-        )
-"""
