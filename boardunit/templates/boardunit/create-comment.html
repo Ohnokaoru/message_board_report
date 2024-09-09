@@ -36,6 +36,7 @@
     {% endif %}
 </div>
 
+
 <div id="comment-area">
     留言區: <br>
     {% if comments %}
@@ -49,18 +50,21 @@
 </div>
 
 
+<div id="leave-a-comment">
+    我要留言:
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="{{form.text.id_for_label}}"></label>
+        <div class="comment-span">
+            {{form.text}} <br>
+        </div>
 
-<div id="leave-comment-a">
-    {% if parent_id %}<!-- 針對留言做回覆與留言 -->
-    <a href="{% url 'create-comment-parent' boardunit.id parent.id %}">我要留言</a>
-
-    {% else %}
-    <!-- 針對發文做留言 -->
-    <a href="{% url 'create-comment' boardunit.id %}">我要留言</a>
-    {% endif %}
-    <br>
-    <hr>
+        <input type="submit" name="submit-button" id="submit-button" value="確定">
+        <input type="reset" name="reset-button" id="reset-button" value="清除">
+    </form>
 </div>
+
+
 
 
 

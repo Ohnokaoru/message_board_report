@@ -5,7 +5,11 @@ urlpatterns = [
     path("create-boardunit/", views.create_boardunit, name="create-boardunit"),
     path("review-all/", views.review_all, name="review-all"),
     path("", views.review_all, name="review-all"),
-    path("review-detail/<int:boardunit_id>", views.review_detail, name="review-detail"),
+    path(
+        "review-detail/<int:boardunit_id>/",
+        views.review_detail,
+        name="review-detail",
+    ),
     path("review-myboardunit", views.review_myboardunit, name="review-myboardunit"),
     path(
         "edit-myboardunit/<int:boardunit_id>",
@@ -16,5 +20,17 @@ urlpatterns = [
         "delete-myboardunit/<int:boardunit_id>",
         views.delete_myboardunit,
         name="delete-myboardunit",
+    ),
+    # parent_id不為None(回覆留言)
+    path(
+        "create-comment/<int:boardunit_id>/<int:parent_id>/",
+        views.create_comment,
+        name="create-comment-parent",
+    ),
+    # 針對發文留言
+    path(
+        "create-comment/<int:boardunit_id>/",
+        views.create_comment,
+        name="create-comment",
     ),
 ]

@@ -20,11 +20,11 @@ class Comment(models.Model):
     board_unit = models.ForeignKey(
         BoardUnit, related_name="comments", on_delete=models.CASCADE
     )
-    # 多個self->comment，會指向同一個parent
+    # 多個self->comment，會指向同一個parent。parent為none表示這則comment是最頂層的留言(針對發文的留言，而非對他人的留言回復)
     parent = models.ForeignKey(
         "self", null=True, blank=True, related_name="replies", on_delete=models.CASCADE
     )
-    text = models.TextField()
+    text = models.CharField(max_length=200)
     time = models.DateTimeField(auto_now_add=True)
     userprofile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 

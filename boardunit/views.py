@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import BoardUnit
+from .models import BoardUnit, Comment
 from django.contrib.auth.decorators import login_required
-from .forms import BoardUnitForm
+from .forms import BoardUnitForm, CommentForm
 from django.core.paginator import Paginator
 
 # Create your views here.
@@ -134,3 +134,53 @@ def delete_myboardunit(request, boardunit_id):
     return render(
         request, "boardunit/delete-myboardunit.html", {"myboardunit": myboardunit}
     )
+
+
+# 新增留言
+@login_required
+def create_comment(request, boardunit_id, parent_id=None):
+    try:
+        boardunit = BoardUnit.objects.get(id=boardunit_id)
+
+    except BoardUnit.DoesNotExist:
+        return redirect("review-all")
+
+    # 是否為頂層留言(none為頂層留言，是針對發文的留言，而非針對留言的回覆)
+    message = ""
+    parent = None
+    try:
+        parent = Comment.objects.get(id=parent_id)
+
+    except Comment.DoesNotExist:
+        parent = None
+
+        if request.method == "POST":
+            form = CommentForm(request.POST)
+
+            if form.is_valid():
+                commentform = form.save(commit=False)
+                commentform.board_unit = boardunit
+                commentform.parent = parent
+                commentform.userprofile = request.user.userprofile
+                commentform.save()
+                return redirect("review-detail", boardunit_id=boardunit_id)
+
+            else:
+                message = "資料錯誤"
+
+        else:
+            form = CommentForm()
+
+        # 取得所有留言
+        comments = Comment.objects.filter(board_unit=boardunit).order_by("-time")
+
+        return render(
+            request,
+            "boardunit/create-comment.html",
+            {
+                "boardunit": boardunit,
+                "message": message,
+                "form": form,
+                "comments": comments,
+            },
+        )

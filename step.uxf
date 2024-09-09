@@ -209,10 +209,9 @@ CommentForm(forms.ModelForm)</panel_attributes>
       <w>276</w>
       <h>84</h>
     </coordinates>
-    <panel_attributes>Note..
+    <panel_attributes>Note:
 view_detailboardunit
-包含view_detailboardunit
-與create_comment功能</panel_attributes>
+包含新增comment</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -423,7 +422,7 @@ review_detail.html</panel_attributes>
       <w>120</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
+    <panel_attributes>lt=&lt;-&gt;</panel_attributes>
     <additional_attributes>10.0;10.0;80.0;30.0</additional_attributes>
   </element>
   <element>
