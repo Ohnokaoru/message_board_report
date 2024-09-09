@@ -39,9 +39,12 @@
 
 <div id="comment-area">
     留言區: <br>
+    <br>
     {% if comments %}
     {% for comment in comments %}
-    {{comment}}
+    {{comment.userprofile.nickname}} <br>
+    {{comment.text}} <br>
+    {{comment.time}} <br>
     <hr>
     {% endfor %}
     {% else %}

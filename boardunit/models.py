@@ -29,4 +29,4 @@ class Comment(models.Model):
     userprofile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.userprofile.nickname}針對 {self.board_unit} {self.parent}留言:{self.text[:5]}"
+        return f"{self.userprofile.nickname}針對 {self.board_unit} {self.parent}留言:{self.text}"
