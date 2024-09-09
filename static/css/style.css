@@ -19,7 +19,8 @@ body {
 #all-boardunit,
 #review-boardunit,
 #review-myboardunit,
-#edit-myboardunit-form {
+#edit-myboardunit-form,
+#delete-myboardunit-form {
     margin: auto;
     padding: 20px;
     background-color: rgb(192, 247, 247);
@@ -101,4 +102,11 @@ body {
     background-color: rgb(240, 248, 248);
     border-radius: 10px;
 
+}
+
+#delete-myboardunit-form {
+    width: 20%;
+    text-align: center;
+    color: red;
+    font-weight: 700;
 }

@@ -89,6 +89,7 @@ def review_myboardunit(request):
 
 # 修改我的歷史發文
 def edit_myboardunit(request, boardunit_id):
+    message = ""
     try:
         myboardunit = BoardUnit.objects.get(
             id=boardunit_id, userprofile=request.user.userprofile
@@ -104,11 +105,32 @@ def edit_myboardunit(request, boardunit_id):
             myboardunitform.save()
             return redirect("review-detail", boardunit_id=boardunit_id)
 
+        else:
+            message = "資料錯誤"
+
     else:
         form = BoardUnitForm(instance=myboardunit)
 
     return render(
         request,
         "boardunit/edit-myboardunit.html",
-        {"form": form, "myboardunit": myboardunit},
+        {"form": form, "myboardunit": myboardunit, "message": message},
+    )
+
+
+# 刪除我的歷史發文
+def delete_myboardunit(request, boardunit_id):
+    try:
+        myboardunit = BoardUnit.objects.get(
+            id=boardunit_id, userprofile=request.user.userprofile
+        )
+    except BoardUnit.DoesNotExist:
+        return redirect("review-myboardunit")
+
+    if request.method == "POST":
+        myboardunit.delete()
+        return redirect("review-myboardunit")
+
+    return render(
+        request, "boardunit/delete-myboardunit.html", {"myboardunit": myboardunit}
     )

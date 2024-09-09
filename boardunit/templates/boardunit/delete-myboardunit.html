@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title%}刪除我的歷史發文{% endblock %}
+
+{% block content%}
+<div id="title">
+    <h1>刪除我的歷史發文</h1>
+</div>
+
+<div id="delete-myboardunit-form">
+    <form action="" method="POST">
+        {%csrf_token%}
+        <label for="{{myboardunit.subject.id_for_label}}">要刪除標題:</label> <br>
+
+        {{myboardunit.subject}} <br>
+
+
+        <input type="submit" name="submit-button" id="submit-button" value="確定">
+
+
+    </form>
+</div>
+{% endblock %}

@@ -10,8 +10,19 @@
 <div id="review-boardunit">
 
     <div id="subject">
-        {{boardunit.subject}} <br>
+        {{boardunit.subject}}
+
+
+        {% if boardunit.userprofile == request.user.userprofile %}
+        <a href="{% url 'delete-myboardunit' boardunit.id %}">
+            <img src="{% static 'images/x.png' %}" alt="刪除我的歷史發文" width="25" height="25" style="float: right;">
+        </a>
+
+        {% endif %}
     </div>
+
+
+    <br>
 
     <div id="review-boardunit-text">
         {{boardunit.text}} <br>
@@ -24,7 +35,6 @@
     {% if boardunit.userprofile == request.user.userprofile %}
     <div id="edit-a-button">
         <a href="{% url 'edit-myboardunit' boardunit.id %}">修改內容</a>
-
     </div>
     {% endif %}
 </div>

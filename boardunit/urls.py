@@ -12,4 +12,9 @@ urlpatterns = [
         views.edit_myboardunit,
         name="edit-myboardunit",
     ),
+    path(
+        "delete-myboardunit/<int:boardunit_id>",
+        views.delete_myboardunit,
+        name="delete-myboardunit",
+    ),
 ]
