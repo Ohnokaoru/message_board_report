@@ -115,13 +115,20 @@ body {
 }
 
 #comment-area {
-    background-color: rgb(236, 252, 246);
+    background-color: rgb(243, 248, 245);
     width: 30%;
     margin: 20px auto;
+    padding: 15px;
+    /* 設定最大高度 */
+    max-height: 500px;
+    /* 顯示垂直滾動條 */
+    overflow-y: scroll;
+    /* 設定邊框 */
+    border: 1px solid #ccc;
 }
 
 #leave-a-comment {
-    background-color: rgb(220, 243, 234);
+    background-color: rgb(220, 253, 240);
     width: 12%;
 
 
