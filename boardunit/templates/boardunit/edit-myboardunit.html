@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title%}修改我的歷史發文{% endblock %}
+
+{% block content%}
+<div id="title">
+    <h1>修改我的歷史發文</h1>
+</div>
+
+<div id="edit-myboardunit-form">
+    <form action="" method="POST">
+        {%csrf_token%}
+        <label for="{{form.subject.id_for_label}}">標題</label>
+        {{form.subject}} <br>
+
+        <label for="{{form.text.id_for_label}}">內容</label> <br>
+        {{form.text}} <br>
+
+        <label for="{{form.captcha.id_for_label}}">輸入驗證碼</label> <br>
+        {{form.captcha}} <br>
+
+
+        <div id="errors">
+            {% for field in form %}
+            {% if field.errors %}
+            {% for error in field.errors %}
+            {{error}} <br>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+            {{error}} <br>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+
+        <input type="submit" name="submit-button" id="submit-button" value="確定">
+        <input type="reset" name="reset-button" id="reset-button" value="清除">
+
+    </form>
+</div>
+{% endblock %}

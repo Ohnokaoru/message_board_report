@@ -21,12 +21,13 @@
 
     發文時間:{{boardunit.time}} &nbsp;&nbsp;發文者:{{boardunit.userprofile.nickname}}
     <br>
+    {% if boardunit.userprofile == request.user.userprofile %}
+    <div id="edit-a-button">
+        <a href="{% url 'edit-myboardunit' boardunit.id %}">修改內容</a>
 
-
+    </div>
+    {% endif %}
 </div>
 
-
-
-</div>
 
 {% endblock %}

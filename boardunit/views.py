@@ -67,7 +67,9 @@ def review_detail(request, boardunit_id):
 
 # 我的歷史發文
 def review_myboardunit(request):
-    myboardunits = BoardUnit.objects.filter(userprofile=request.user.userprofile)
+    myboardunits = BoardUnit.objects.filter(
+        userprofile=request.user.userprofile
+    ).order_by("-time")
 
     if not myboardunits:
         return redirect("create-boardunit")
@@ -86,3 +88,27 @@ def review_myboardunit(request):
 
 
 # 修改我的歷史發文
+def edit_myboardunit(request, boardunit_id):
+    try:
+        myboardunit = BoardUnit.objects.get(
+            id=boardunit_id, userprofile=request.user.userprofile
+        )
+    except BoardUnit.DoesNotExist:
+        return redirect("review-myboardunit")
+
+    if request.method == "POST":
+        form = BoardUnitForm(request.POST, instance=myboardunit)
+        if form.is_valid():
+            myboardunitform = form.save(commit=False)
+            myboardunitform.userprofile = request.user.userprofile
+            myboardunitform.save()
+            return redirect("review-detail", boardunit_id=boardunit_id)
+
+    else:
+        form = BoardUnitForm(instance=myboardunit)
+
+    return render(
+        request,
+        "boardunit/edit-myboardunit.html",
+        {"form": form, "myboardunit": myboardunit},
+    )

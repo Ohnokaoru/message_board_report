@@ -18,7 +18,8 @@ body {
 #create-boardunit-form,
 #all-boardunit,
 #review-boardunit,
-#review-myboardunit {
+#review-myboardunit,
+#edit-myboardunit-form {
     margin: auto;
     padding: 20px;
     background-color: rgb(192, 247, 247);
