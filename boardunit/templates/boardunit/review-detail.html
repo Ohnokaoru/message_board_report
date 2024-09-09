@@ -36,29 +36,34 @@
     {% endif %}
 </div>
 
+
+
 <div id="comment-area">
-    留言區: <br>
+    <span style="font-weight: 700;">
+        留言區: <br>
+    </span>
     <br>
+    <!-- 留言 -->
     {% if comments %}
     {% for comment in comments %}
-    {{comment.id}}
     {{comment.userprofile.nickname}} <br>
     {{comment.text}} <br>
     {{comment.time}} <br>
-    <!-- 針對留言的回覆 -->
+    <!-- 針對某筆留言(comment)的做留言 -->
     <a href="{% url 'review-detail-parent' boardunit.id comment.id %}">回覆留言</a>
     <br>
     <br>
 
+
+    <!-- 抓出特定comment的所有留言 -->
     {% if comment.replies.all %}
     <div id="reply" style="padding-left: 40px;">
         {% for reply in comment.replies.all %}
         {{reply.userprofile.nickname}} <br>
         {{reply.text}} <br>
         {{reply.time}} <br>
-
-        <!-- 針對回覆的在回覆 -->
-        <a href="{% url 'review-detail-parent' boardunit.id reply.id %}" style="float: right;">回覆</a><br>
+        <!-- 針對某特定留言做留言 -->
+        <a href="{% url 'review-detail-parent' boardunit.id reply.id %}" style="float: right;">回覆留言</a><br>
         <br>
         <br>
         {% endfor %}
@@ -75,7 +80,7 @@
 {% if request.user.is_authenticated %}
 <div id="leave-a-comment">
     {% if not parent %}
-    我對文章要留言
+    我要對文章留言
     <form action="{% url 'review-detail' boardunit.id %}" method="POST">
         {% csrf_token %}
         <label for="{{ form.text.id_for_label }}"></label>
