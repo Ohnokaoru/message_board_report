@@ -14,7 +14,7 @@ def create_userprofile(request):
 
     try:
         userprofile = UserProfile.objects.get(user=request.user)
-        return redirect("review-userprofile")
+        return redirect("review-all")
 
     except UserProfile.DoesNotExist:
         if request.method == "POST":
